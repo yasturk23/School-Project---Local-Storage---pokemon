@@ -1,0 +1,76 @@
+body {
+  background-image: url("/img/wallpaper.jpg");
+  height: 100%;
+  width: 100%;
+  font-family: "Pokemon Solid", sans-serif;
+  color: #3c5aa6 !important;
+  text-shadow: 3px 4px #ffcb05;
+}
+
+.navbar-brand {
+  font-family: "Pokemon Solid", sans-serif;
+  color: #ffcb05;
+  text-shadow: 4px 6px #3c5aa6;
+  font-size: 3rem;
+}
+
+.navbar-brand:hover {
+  color: #3c5aa6;
+  text-shadow: 3px 4px #ffcb05;
+}
+
+table th {
+  font-family: "Pokemon Solid", sans-serif;
+  color: #ffcb05;
+  text-shadow: 3px 4px #3c5aa6;
+  text-align: center;
+  font-size: larger;
+}
+
+table th:hover {
+  color: #3c5aa6;
+  text-shadow: 3px 4px #ffcb05;
+}
+
+table tbody {
+  font-family: "Pokemon Solid", sans-serif;
+  text-align: center;
+  text-shadow: 2px 3px #ffcb05;
+  font-size: smaller;
+}
+.form-label {
+  color: #2a75bb;
+}
+
+.form-label:hover {
+  color: #ffcb05;
+  text-shadow: 4px 5px #2a75bb;
+}
+
+.ids {
+  color: #2a75bb !important;
+}
+
+.names {
+  color: #2a75bb !important;
+}
+
+.types {
+  color: #2a75bb !important;
+}
+
+.levels {
+  color: #2a75bb !important;
+}
+
+.ready {
+  color: #2a75bb !important;
+}
+
+tbody tr:hover {
+  text-shadow: 4px 5px #ffcb05;
+}
+
+#Pokemon-img:hover {
+  transform: scale(1.5);
+}

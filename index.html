@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projet Final</title>
+    <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet" />
+    <link
+      href="http://fonts.cdnfonts.com/css/pokemon-hollow"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container-xxl">
+      <nav class="navbar bg-light">
+
+        
+        <div class="container-fluid justify-content-center">
+          <a class="navbar-brand">
+            <img
+              src="/img/logo.png"
+              alt="Logo"
+              width="128"
+              height="128"
+              class="d-inline-block"
+            />
+            Pokémon Tracker
+          </a>
+          
+        </div>
+</nav>
+
+        <div class="row">
+          <div class="col">
+            <button
+                    class="btn btn-success btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Ascending Order"
+                    id="Asc-Btn">
+            </button>
+            
+            <button
+                    class="btn btn-danger btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Descending Order"
+                    id="Dsc-Btn">
+                  </button>
+            </div>
+          
+          <div class="col"> 
+              <p>Combat Ready if Level > 50  (average of all stats) </p>  
+          </div> 
+        </div>
+
+<div class="table-responsive">
+        <table
+          class="table table-responsive table-striped table-hover table-bordered"
+        >
+          <thead class="border border-dark bg-dark bg-opacity-10">
+            <tr>
+              <th class="col-sm-1">ID</th>
+              <th class="col-sm-1">Name</th>
+              <th class="col-sm-1">Image</th>
+              <th class="col-sm-2">Type</th>
+              <th class="col-sm-1">HP</th>
+              <th class="col-sm-1">Attack</th>
+              <th class="col-sm-1">Defense</th>
+              <th class="col-sm-1">Speed</th>
+              <th class="col-sm-1">Special</th>
+              <th class="col-sm-1">Level</th>
+              <th class="col-sm-1">Combat Ready</th>
+              <th class="col-sm-1">Action</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider align-middle" id="table-body">
+            <tr>
+              <td class = "ids">
+                <input
+                  type="text"
+                  placeholder="ID"
+                  class="w-75"
+                    name="id"
+                    id="id"
+                  disabled
+                />
+              </td>
+              <td class = "names">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  class="w-100"
+                  name="Pokemon-Name"
+                  id="Pokemon-Name"
+                  disabled
+                />
+              </td>
+              <td>
+                <input type="file" style="display: none;" accept="image/*" id="img-url">
+                  <img
+                    src="img/logo.png"
+                    class="img-fluid"
+                    alt="A Pokemon Image"
+                    width="128"
+                    height="128"
+                    id="Pokemon-img"
+                  />
+                </input>
+              </td>
+              <td class = "types">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  name="Type"
+                  id="Type"
+                  disabled
+                >
+                  <option selected>Type</option>
+                  <option value="0">Normal</option>
+                  <option value="1">Fire</option>
+                  <option value="2">Water</option>
+                  <option value="3">Electric</option>
+                  <option value="4">Grass</option>
+                  <option value="5">Ice</option>
+                  <option value="6">Fighting</option>
+                  <option value="7">Poison</option>
+                  <option value="8">Ground</option>
+                  <option value="9">Flying</option>
+                  <option value="10">Psychic</option>
+                  <option value="11">Bug</option>
+                  <option value="12">Rock</option>
+                  <option value="13">Ghost</option>
+                  <option value="14">Dragon</option>
+                </select>
+              </td>
+              
+              <td>
+                <label for="HP" class="form-label" id="form-label" >HP </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="HP-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Attack" class="form-label" id="form-label" >Attack </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Attack-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Defense" class="form-label" id="form-label">Defense </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Defense-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Speed" class="form-label"  id="form-label">Speed </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Speed-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Special" class="form-label" id="form-label">Special </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                 
+                  id="Special-Range"
+                  disabled
+                />
+              </td>
+
+                 <td class="levels">
+                <input
+                 type="text"
+                  placeholder="1-100"
+                  class="w-75"
+                  id="Level"
+                  disabled
+                />
+              </td>
+               
+
+              <td class = "ready">
+                <input
+                  type="text"
+                  class="w-75"
+                  id="Combat-Ready"
+                  disabled
+                />
+              </td>
+              
+              <td>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-success btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Edit"
+                    id="Edit-Btn"
+                  ></button>
+                </li>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-danger btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Delete"
+                    id="Delete-Btn"
+                  ></button>
+                </li>
+              </td>
+            </tr>
+            <tr>
+              <td class = "ids">
+                <input
+                  type="text"
+                  placeholder="ID"
+                  class="w-75"
+                    name="id"
+                                        id="id"
+
+                  disabled
+                />
+              </td>
+              <td class = "names">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  class="w-100"
+                  name="Pokemon-Name"
+                    id="Pokemon-Name"
+
+                  disabled
+                />
+              </td>
+              <td>
+                <input type="file" style="display: none;" accept="image/*" id="img-url">
+                  <img
+                    src="img/logo.png"
+                    class="img-fluid"
+                    alt="A Pokemon Image"
+                    width="128"
+                    height="128"
+                    id="Pokemon-img"
+                  />
+                </input>
+              </td>
+              <td class = "types">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  name="Type"
+                  id="Type"
+                  disabled
+                >
+                   <option selected>Type</option>
+                  <option value="0">Normal</option>
+                  <option value="1">Fire</option>
+                  <option value="2">Water</option>
+                  <option value="3">Electric</option>
+                  <option value="4">Grass</option>
+                  <option value="5">Ice</option>
+                  <option value="6">Fighting</option>
+                  <option value="7">Poison</option>
+                  <option value="8">Ground</option>
+                  <option value="9">Flying</option>
+                  <option value="10">Psychic</option>
+                  <option value="11">Bug</option>
+                  <option value="12">Rock</option>
+                  <option value="13">Ghost</option>
+                  <option value="14">Dragon</option>
+                </select>
+              </td>
+              
+              <td>
+                <label for="HP" class="form-label"  id="form-label">HP </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="HP-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Attack" class="form-label" id="form-label">Attack </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Attack-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Defense" class="form-label" id="form-label">Defense </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Defense-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Speed" class="form-label"  id="form-label">Speed </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Speed-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Special" class="form-label"  id="form-label">Special </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Special-Range"
+                  disabled
+                />
+              </td>
+                 <td class="levels">
+                <input
+                  type="text"
+                  placeholder="1-100"
+                  class="w-75"
+                  id="Level"
+                  disabled
+                />
+              </td>
+           
+              <td class = "ready">
+                <input
+                  type="text"
+                  class="w-75"
+                  id="Combat-Ready"
+                  disabled
+                />
+              </td>
+             
+              <td>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-success btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Edit"
+                    id="Edit-Btn"
+                  ></button>
+                </li>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-danger btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Delete"
+                    id="Delete-Btn"
+                  ></button>
+                </li>
+              </td>
+            </tr>
+            <tr>
+              <td class = "ids">
+                <input
+                  type="text"
+                  placeholder="ID"
+                  class="w-75"
+                    name="id"
+                                        id="id"
+
+                  disabled
+                />
+              </td>
+              <td class = "names">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  class="w-100"
+                  name="Pokemon-Name"
+                    id="Pokemon-Name"
+
+                  disabled
+                />
+              </td>
+
+              <td>
+                <input type="file" style="display: none;" accept="image/*" id="img-url">
+                  <img
+                    src="img/logo.png"
+                    class="img-fluid"
+                    alt="A Pokemon Image"
+                    width="128"
+                    height="128"
+                    id="Pokemon-img"
+                  />
+                </input>
+              </td>
+              <td class = "types">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  name="Type"
+                  id="Type"
+                  disabled
+                >
+                  <option selected>Type</option>
+                  <option value="0">Normal</option>
+                  <option value="1">Fire</option>
+                  <option value="2">Water</option>
+                  <option value="3">Electric</option>
+                  <option value="4">Grass</option>
+                  <option value="5">Ice</option>
+                  <option value="6">Fighting</option>
+                  <option value="7">Poison</option>
+                  <option value="8">Ground</option>
+                  <option value="9">Flying</option>
+                  <option value="10">Psychic</option>
+                  <option value="11">Bug</option>
+                  <option value="12">Rock</option>
+                  <option value="13">Ghost</option>
+                  <option value="14">Dragon</option>
+                </select>
+              </td>
+              
+              <td>
+                <label for="HP" class="form-label"  id="form-label">HP </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="HP-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Attack" class="form-label"  id="form-label">Attack </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Attack-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Defense" class="form-label"  id="form-label">Defense </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Defense-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Speed" class="form-label"  id="form-label">Speed </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Speed-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Special" class="form-label"  id="form-label">Special </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Special-Range"
+                  disabled
+                />
+              </td>
+                 <td class="levels">
+                <input
+                  type="text"
+                  placeholder="1-100"
+                  class="w-75"
+                  id="Level"
+                  disabled
+                />
+              </td>
+               
+              <td class = "ready">
+                <input
+                  type="text"
+                  class="w-75"
+                  id="Combat-Ready"
+                  disabled
+                />
+              </td>
+                
+              <td>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-success btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Edit"
+                    id="Edit-Btn"
+                  ></button>
+                </li>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-danger btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Delete"
+                    id="Delete-Btn"
+                  ></button>
+                </li>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class = "ids">
+                <input
+                  type="text"
+                  placeholder="ID"
+                  class="w-75"
+                    name="id"
+                                        id="id"
+
+                  disabled
+                />
+              </td>
+              <td class = "names">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  class="w-100"
+                  name="Pokemon-Name"
+                    id="Pokemon-Name"
+
+                  disabled
+                />
+              </td>
+
+              <td>
+                <input type="file" style="display: none;" accept="image/*" id="img-url">
+                  <img
+                    src="img/logo.png"
+                    class="img-fluid"
+                    alt="A Pokemon Image"
+                    width="128"
+                    height="128"
+                    id="Pokemon-img"
+                  />
+                </input>
+              </td>
+              <td class = "types">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  name="Type"
+                  id="Type"
+                  disabled
+                >
+                  <option selected>Type</option>
+                  <option value="0">Normal</option>
+                  <option value="1">Fire</option>
+                  <option value="2">Water</option>
+                  <option value="3">Electric</option>
+                  <option value="4">Grass</option>
+                  <option value="5">Ice</option>
+                  <option value="6">Fighting</option>
+                  <option value="7">Poison</option>
+                  <option value="8">Ground</option>
+                  <option value="9">Flying</option>
+                  <option value="10">Psychic</option>
+                  <option value="11">Bug</option>
+                  <option value="12">Rock</option>
+                  <option value="13">Ghost</option>
+                  <option value="14">Dragon</option>
+                </select>
+              </td>
+              
+              <td>
+                <label for="HP" class="form-label"  id="form-label">HP </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="HP-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Attack" class="form-label" id="form-label">Attack </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Attack-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Defense" class="form-label"  id="form-label">Defense </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Defense-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Speed" class="form-label"  id="form-label">Speed </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Speed-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Special" class="form-label"  id="form-label">Special </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Special-Range"
+                  disabled
+                />
+              </td>
+                 <td class = "levels">
+                <input
+                  type="text"
+                  placeholder="1-100"
+                  class="w-75"
+                  id="Level"
+                  disabled
+                />
+              </td>
+               
+              <td class = "ready">
+                <input
+                  type="text"
+                  class="w-75"
+                  id="Combat-Ready"
+                  disabled
+                />
+              </td>
+                
+              <td>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-success btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Edit"
+                    id="Edit-Btn"
+                  ></button>
+                </li>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-danger btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Delete"
+                    id="Delete-Btn"
+                  ></button>
+                </li>
+              </td>
+            </tr>
+            <tr>
+              <td class = "ids">
+                <input
+                  type="text"
+                  placeholder="ID"
+                  class="w-75"
+                  name="id"
+                                      id="id"
+
+                  disabled
+                />
+              </td>
+              <td class = "names">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  class="w-100"
+                  name="Pokemon-Name"
+                    id="Pokemon-Name"
+
+                  disabled
+                />
+              </td>
+
+              <td>
+                <input type="file" style="display: none;" accept="image/*" id="img-url">
+                  <img
+                    src="img/logo.png"
+                    class="img-fluid"
+                    alt="A Pokemon Image"
+                    width="128"
+                    height="128"
+                    id="Pokemon-img"
+                  />
+                </input>
+              </td>
+              <td class = "types">
+                <select
+                  class="form-select form-select-sm"
+                  aria-label="Default select example"
+                  name="Type"
+                  id="Type"
+                  disabled
+                >
+                   <option selected>Type</option>
+                  <option value="0">Normal</option>
+                  <option value="1">Fire</option>
+                  <option value="2">Water</option>
+                  <option value="3">Electric</option>
+                  <option value="4">Grass</option>
+                  <option value="5">Ice</option>
+                  <option value="6">Fighting</option>
+                  <option value="7">Poison</option>
+                  <option value="8">Ground</option>
+                  <option value="9">Flying</option>
+                  <option value="10">Psychic</option>
+                  <option value="11">Bug</option>
+                  <option value="12">Rock</option>
+                  <option value="13">Ghost</option>
+                  <option value="14">Dragon</option>
+                </select>
+              </td>
+              
+              <td>
+                <label for="HP" class="form-label"  id="form-label">HP </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="HP-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Attack" class="form-label"  id="form-label">Attack </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Attack-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Defense" class="form-label" id="form-label">Defense </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Defense-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Speed" class="form-label"  id="form-label">Speed </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Speed-Range"
+                  disabled
+                />
+              </td>
+              <td>
+                <label for="Special" class="form-label"  id="form-label">Special </label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="1"
+                  max="100"
+                   
+                  id="Special-Range"
+                  disabled
+                />
+              </td>
+                 <td class = "levels">
+                <input
+                  type="text"
+                  placeholder="1-100"
+                  class="w-75"
+                  id="Level"
+                  disabled
+                />
+              </td>
+               
+              <td class = "ready">
+                <input
+                  type="text"
+                  class="w-75"
+                  id="Combat-Ready"
+                  disabled
+                />
+              </td>
+                
+              <td>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-success btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Edit"
+                    id="Edit-Btn"
+                  ></button>
+                </li>
+                <li class="list-inline-item">
+                  <button
+                    class="btn btn-danger btn-sm rounded-10"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Delete"
+                    id="Delete-Btn"
+                  ></button>
+                </li>
+              </td>
+            </tr>
+           
+          </tbody>
+        </table>
+
+        <div class="container">
+          <div class="row">
+            <div class="col"><h6>Total HP </h6></div> 
+            <div class="col"><h6 id="Total-HP"></h6></div> 
+            <div class="col"><h6>Total Attack </h6></div> 
+            <div class="col"><h6 id="Total-Attack"></h6></div> 
+            <div class="col"><h6>Total Defense</h6></div> 
+            <div class="col"><h6 id="Total-Defense"></h6></div> 
+            <div class="col"><h6>Total Speed</h6></div> 
+            <div class="col"><h6 id="Total-Speed"></h6></div> 
+            <div class="col"><h6>Total Special</h6></div> 
+            <div class="col"><h6 id="Total-Special"></h6></div> 
+
+          
+          </div>
+          
+        </div>
+
+
+
+        <div class="container-lg">
+          <br>
+
+          <form action="">
+          
+          <table class="table-sm table-responsive bg-dark bg-opacity-25" id="tableAdd"> 
+            <thead class="border">
+            <tr>
+              <th class="col-sm-1">Name</th>
+              <th class="col-sm-2">Type</th>
+              <th class="col-sm-1">HP</th>
+              <th class="col-sm-1">Attack</th>
+              <th class="col-sm-1">Defense</th>
+              <th class="col-sm-1">Speed</th>
+              <th class="col-sm-1">Special</th>
+            </tr>
+            </thead>
+
+            <tbody>  
+              <tr>
+                
+                <td class="col-2">
+                 <select
+                    class="form-select form-select-sm"
+                    aria-label="Default select example"
+                    id="newPokemon-Name"
+                  >
+                  <option selected value="1">Abra</option>
+                  <option value="2">Aerodactyl</option>
+                  <option value="3">Alakazam</option>
+                  <option value="4">Arbok</option>
+                  <option value="5">Arcanine</option>
+                  <option value="6">Articuno</option>
+                  <option value="7">Beedrill</option>
+                  <option value="8">Bellsprout</option>
+                  <option value="9">Blastoise</option>
+                  <option value="10">Bulbasaur</option>
+
+                  <option value="11">Butterfree</option>
+                  <option value="12">Caterpie</option>
+                  <option value="13">Chansey</option>
+                  <option value="14">Charizard</option>
+                  <option value="15">Charmander</option>
+                  <option value="16">Charmeleon</option>
+                  <option value="17">Clefable</option>
+                  <option value="18">Clefairy</option>
+                  <option value="19">Cloyster</option>
+                  <option value="20">Cubone</option>
+
+
+                  <option value="21">Dewgong</option>
+                  <option value="22">Diglett</option>
+                  <option value="23">Ditto</option>
+                  <option value="24">Dodrio</option>
+                  <option value="25">Doduo</option>
+                  <option value="26">Dragonair</option>
+                  <option value="27">Dragonite</option>
+                  <option value="28">Dratini</option>
+                  <option value="29">Drowzee</option>
+                  <option value="30">Dugtrio</option>
+
+                  <option value="31">Eevee</option>
+                  <option value="32">Ekans</option>
+                  <option value="33">Electabuzz</option>
+                  <option value="34">Electrode</option>
+                  <option value="35">Exeggcute</option>
+                  <option value="36">Exeggutor</option>
+                  <option value="37">Farfetchd</option>
+                  <option value="38">Fearow</option>
+                  <option value="39">Flareon</option>
+                  <option value="40">Gastly</option>
+
+                  <option value="41">Gengar</option>
+                  <option value="42">Gengar</option>
+                  <option value="43">Gloom</option>
+                  <option value="44">Golbat</option>
+                  <option value="45">Goldeen</option>
+                  <option value="46">Golduck</option>
+                  <option value="47">Golem</option>
+                  <option value="48">Graveler</option>
+                  <option value="49">Grimer</option>
+                  <option value="50">Growlithe</option>
+
+                  <option value="51">Gyarados</option>
+                  <option value="52">Haunter</option>
+                  <option value="53">Hitmonchan</option>
+                  <option value="54">Hitmonlee</option>
+                  <option value="55">Horsea</option>
+                  <option value="56">Hypno</option>
+                  <option value="57">Ivysaur</option>
+                  <option value="58">Jigglypuff</option>
+                  <option value="59">Jolteon</option>
+                  <option value="60">Jynx</option>
+
+                  <option value="61">Kabuto</option>
+                  <option value="62">Kabutops</option>
+                  <option value="63">Kadabra</option>
+                  <option value="64">Kakuna</option>
+                  <option value="65">Kangaskhan</option>
+                  <option value="66">Kingler</option>
+                  <option value="67">Koffing</option>
+                  <option value="68">Krabby</option>
+                  <option value="69">Lapras</option>
+                  <option value="70">Lickitung</option>
+
+          
+                  <option value="71">Machamp</option>
+                  <option value="72">Machoke</option>
+                  <option value="73">Machop</option>
+                  <option value="74">Magikarp</option>
+                  <option value="75">Magmar</option>
+                  <option value="76">Magnemite</option>
+                  <option value="77">Magneton</option>
+                  <option value="78">Mankey</option>
+                  <option value="79">Marowak</option>
+                  <option value="80">Meowth</option>
+                  
+                  <option value="81">Metapod</option>
+                  <option value="81">Mew</option>
+                  <option value="83">Mewtwo</option>
+                  <option value="84">Moltres</option>
+                  <option value="85">Mr-Mime</option>
+                  <option value="86">Muk</option>
+                  <option value="87">Nidoking</option>
+                  <option value="88">Nidoqueen</option>
+                  <option value="89">Nidoran-m</option>
+                  <option value="90">Nidoran-f</option>
+
+
+                  <option value="91">Nidorina</option>
+                  <option value="92">Nidorino</option>
+                  <option value="93">Ninetales</option>
+                  <option value="94">Oddish</option>
+                  <option value="95">Omanyte</option>
+                  <option value="96">Omastar</option>
+                  <option value="97">Onix</option>
+                  <option value="98">Paras</option>
+                  <option value="99">Parasect</option>
+                  <option value="100">Persian</option>
+
+
+                  <option value="101">Pidgeot</option>
+                  <option value="102">Pidgeotto</option>
+                  <option value="102">Pidgey</option>
+                  <option value="104">Pikachu</option>
+                  <option value="105">Pinsir</option>
+                  <option value="106">Poliwag</option>
+                  <option value="107">Poliwhirl</option>
+                  <option value="108">Poliwrath</option>
+                  <option value="109">Ponyta</option>
+                  <option value="120">Porygon</option>
+
+                  <option value="111">Primeape</option>
+                  <option value="112">Psyduck</option>
+                  <option value="113">Raichu</option>
+                  <option value="114">Rapidash</option>
+                  <option value="115">Raticate</option>
+                  <option value="116">Rattata</option>
+                  <option value="117">Rhydon</option>
+                  <option value="118">Rhyhorn</option>
+                  <option value="119">Sandshrew</option>
+                  <option value="120">Sandslash</option>
+
+                  <option value="121">Scyther</option>
+                  <option value="122">Seadra</option>
+                  <option value="123">Seaking</option>
+                  <option value="124">Seel</option>
+                  <option value="125">Shellder</option>
+                  <option value="126">Slowbro</option>
+                  <option value="127">Slowpoke</option>
+                  <option value="128">Snorlax</option>
+                  <option value="129">Spearow</option>
+                  <option value="130">Squirtle</option>
+
+                  <option value="131">Starmie</option>
+                  <option value="132">Staryu</option>
+                  <option value="133">Tangela</option>
+                  <option value="134">Tauros</option>
+                  <option value="135">Tentacool</option>
+                  <option value="136">Tentacruel</option>
+                  <option value="137">Vaporeon</option>
+                  <option value="138">Venomoth</option>
+                  <option value="139">Venonat</option>
+                  <option value="140">Venusaur</option>
+
+                  <option value="141">Victreebel</option>
+                  <option value="142">Vileplume</option>
+                  <option value="143">Voltorb</option>
+                  <option value="144">Vulpix</option>
+                  <option value="145">Wartortle</option>
+                  <option value="146">Weedle</option>
+                  <option value="147">Weepinbell</option>
+                  <option value="148">Weezing</option>
+                  <option value="149">Wigglytuff</option>
+                  <option value="150">Zapdos</option>
+                  <option value="151">Zubat</option>
+
+                 
+                  </select>
+                
+                
+                </td>
+                
+                <td class="col-sm-2">
+                  <select
+                    class="form-select form-select-sm"
+                    aria-label="Default select example"
+                    id="newType"
+                  >
+                  <option selected value="0">Normal</option>
+                  <option value="1">Fire</option>
+                  <option value="2">Water</option>
+                  <option value="3">Electric</option>
+                  <option value="4">Grass</option>
+                  <option value="5">Ice</option>
+                  <option value="6">Fighting</option>
+                  <option value="7">Poison</option>
+                  <option value="8">Ground</option>
+                  <option value="9">Flying</option>
+                  <option value="10">Psychic</option>
+                  <option value="11">Bug</option>
+                  <option value="12">Rock</option>
+                  <option value="13">Ghost</option>
+                  <option value="14">Dragon</option>
+                  </select>
+                </td>
+
+                <td>
+                  <label for="HP" class="form-label"  id="form-label">HP </label>
+                  <input
+                    type="range"
+                    class="form-range"
+                    min="1"
+                    max="100"
+                     
+                    id="newHP-Range"
+                  />
+                </td>
+                <td>
+                  <label for="Attack" class="form-label"  id="form-label">Attack </label>
+                  <input
+                    type="range"
+                    class="form-range"
+                    min="1"
+                    max="100"
+                     
+                    id="newAttack-Range"
+                  />
+                </td>
+                <td>
+                  <label for="Defense" class="form-label" id="form-label">Defense </label>
+                  <input
+                    type="range"
+                    class="form-range"
+                    min="1"
+                    max="100"
+                     
+                    id="newDefense-Range"
+                  />
+                </td>
+                <td>
+                  <label for="Speed" class="form-label" id="form-label">Speed </label>
+                  <input
+                    type="range"
+                    class="form-range"
+                    min="1"
+                    max="100"
+                     
+                    id="newSpeed-Range"
+                  />
+                </td>
+                <td>
+                  <label for="Special" class="form-label" id="form-label">Special </label>
+                  <input
+                    type="range"
+                    class="form-range"
+                    min="1"
+                    max="100"
+                     
+                    id="newSpecial-Range"
+                  />
+                </td>
+                   <td>
+                <input
+                  type="text"
+                  placeholder="1-100"
+                  class="w-75"
+                  id="Level"
+                  disabled
+                  style="display: none;"
+                />
+              </td>
+
+                <td class="col">
+                  <li class="list-inline-item">
+                    <button
+                      class="btn btn-success btn-lg rounded-10"
+                      type="button"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Add"
+                      id="Add-Btn"
+                    ></button>
+                  </li>
+                  <li class="list-inline-item">
+                    <button
+                      class="btn btn-danger btn-lg rounded-10"
+                      type="button"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Cancel"
+                      id="Cancel-Btn"
+                    ></button>
+                  </li>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+          
+            
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
